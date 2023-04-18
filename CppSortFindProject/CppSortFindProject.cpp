@@ -134,10 +134,29 @@ void ArrayReverse(int array[], int size)
 }
 
 void ArrayReversePart(int array[], int size, int indexBegin, int indexEnd);
-void ArrayReversePart(int array[], int size, int indexBegin, int subSize);
+//void ArrayReversePart(int array[], int size, int indexBegin, int subSize);
 int ArrayMaxIndex(int array[], int size, int indexBegin, int indexEnd);
 
 void ArraySortCake(int array[], int size);
+
+void ArrayShiftLeft(int array[], int size, int shift)
+{
+    //shift = shift % size;
+    shift %= size;
+
+    for (int s = 0; s < shift; s++)
+    {
+        int temp = array[0];
+        for (int i = 1; i < size; i++)
+            array[i - 1] = array[i];
+        array[size - 1] = temp;
+    }
+}
+
+void ArrayShiftRight(int array[], int size, int shift)
+{
+
+}
 
 int main()
 {
@@ -154,7 +173,9 @@ int main()
     //ArraySortInsert(array, size);
     //ArraySortShacker(array, size);
 
-    ArrayReverse(array, size);
+    //ArrayReverse(array, size);
+    
+    ArrayShiftLeft(array, size, 27);
 
     ArrayPrint(array, size);
 
